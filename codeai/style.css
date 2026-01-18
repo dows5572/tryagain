@@ -1,0 +1,359 @@
+/* ========== GENERAL STYLES ========== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #e8e8e8;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h3 {
+    color: #34495e;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.code-explanation {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-left: 4px solid #3498db;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.box {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+/* Different colored boxes for variety */
+.box:nth-child(1) { background-color: #e74c3c; }
+.box:nth-child(2) { background-color: #27ae60; }
+.box:nth-child(3) { background-color: #2980b9; }
+.box:nth-child(4) { background-color: #f39c12; }
+.box:nth-child(5) { background-color: #9b59b6; }
+.box:nth-child(6) { background-color: #1abc9c; }
+.box:nth-child(7) { background-color: #c0392b; }
+.box:nth-child(8) { background-color: #16a085; }
+.box:nth-child(9) { background-color: #8e44ad; }
+
+/* ========== FLEXBOX LAYOUTS ========== */
+/* Flexbox is a one-dimensional layout system that arranges items in rows or columns */
+/* Use flexbox for: navigation menus, button groups, simple one-dimensional layouts */
+
+/* Flex Layout 1: Basic Row Direction (DEFAULT) */
+/* display: flex - Activates flexbox */
+/* Items arrange horizontally (left to right) by default */
+/* gap: 10px - Spacing between items */
+.flex-row {
+    display: flex;              /* Enable flexbox layout */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Flex Layout 2: Column Direction (VERTICAL STACKING) */
+/* flex-direction: column - Changes main axis from horizontal to vertical */
+/* Items stack vertically (top to bottom) */
+/* Perfect for vertical menus or stacked content */
+.flex-column {
+    display: flex;              /* Enable flexbox layout */
+    flex-direction: column;     /* Stack items vertically */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Flex Layout 3: Space-Between (EQUAL DISTRIBUTION) */
+/* justify-content: space-between - Distributes items with equal space BETWEEN them */
+/* First item touches left edge, last item touches right edge */
+/* Good for header navigation (logo left, menu right) */
+.flex-space-between {
+    display: flex;              /* Enable flexbox layout */
+    justify-content: space-between; /* Distribute items with space between */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Flex Layout 4: Space-Around (EQUAL MARGINS) */
+/* justify-content: space-around - Adds equal space AROUND each item */
+/* Each item has equal margin-left and margin-right */
+/* Outer items have space between them and container edges */
+.flex-space-around {
+    display: flex;              /* Enable flexbox layout */
+    justify-content: space-around; /* Equal space around each item */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Flex Layout 5: Center (HORIZONTAL CENTER) */
+/* justify-content: center - Centers all items horizontally */
+/* Items are packed together in the center */
+/* Common for centered buttons or badge groups */
+.flex-center {
+    display: flex;              /* Enable flexbox layout */
+    justify-content: center;    /* Center items horizontally */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Flex Layout 6: Align-Items Center (VERTICAL CENTER) */
+/* align-items: center - Centers items VERTICALLY along cross-axis */
+/* Requires height to be set (100px in this case) */
+/* Perfect for aligning content in headers or hero sections */
+.flex-align-center {
+    display: flex;              /* Enable flexbox layout */
+    align-items: center;        /* Center items vertically */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+    height: 100px;              /* Container height needed for vertical centering */
+}
+
+/* Flex Layout 7: Wrap Items (RESPONSIVE WRAPPING) */
+/* flex-wrap: wrap - Items wrap to next line if they don't fit */
+/* flex-wrap: nowrap (default) - Forces items to stay on one line, shrinking if needed */
+/* Essential for responsive layouts that adapt to container width */
+.flex-wrap {
+    display: flex;              /* Enable flexbox layout */
+    flex-wrap: wrap;            /* Allow items to wrap to next line */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Flex Layout 8: Flex Grow (FLEXIBLE SIZING) */
+/* flex: 1 - Items grow to fill available space equally */
+/* flex: 1 is shorthand for (flex-grow: 1, flex-shrink: 1, flex-basis: 0) */
+/* All items with flex:1 share the space equally */
+.flex-grow-container {
+    display: flex;              /* Enable flexbox layout */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+.flex-grow-container .box {
+    flex: 1;                    /* Each item grows equally to fill available space */
+}
+
+/* Flex Layout 9: Complex Wrap & Center (COMBINATION) */
+/* Combines multiple properties: row direction, wrap, and center alignment */
+/* flex-direction: row - Items flow left to right */
+/* flex-wrap: wrap - Items wrap when needed */
+/* justify-content: center - Centers wrapped lines horizontally */
+.flex-wrap-column {
+    display: flex;              /* Enable flexbox layout */
+    flex-direction: row;        /* Items flow horizontally (left to right) */
+    flex-wrap: wrap;            /* Allow items to wrap to next line */
+    justify-content: center;    /* Center items horizontally */
+    gap: 10px;                  /* Space between items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Flex Layout 10: Align-Content (MULTI-LINE ALIGNMENT) */
+/* align-content: space-between - Controls space BETWEEN flex lines (not items) */
+/* Only works with flex-wrap: wrap and when content wraps to multiple lines */
+/* Different from justify-content which aligns items on one line */
+.flex-align-content {
+    display: flex;              /* Enable flexbox layout */
+    flex-wrap: wrap;            /* Allow wrapping to multiple lines */
+    align-content: space-between; /* Control space between wrapped lines */
+    justify-content: space-between; /* Space between items on each line */
+    gap: 10px;                  /* Space between items */
+    height: 200px;              /* Height needed for align-content to work */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* ========== GRID LAYOUTS ========== */
+/* CSS Grid is a two-dimensional layout system that works with rows AND columns */
+/* Use grid for: page layouts, product galleries, dashboards, complex layouts */
+
+/* Grid Layout 1: Basic 3-Column Grid (MOST COMMON) */
+/* display: grid - Activates CSS Grid */
+/* grid-template-columns: repeat(3, 1fr) - Create 3 equal-width columns */
+/* 1fr = 1 fractional unit (flexible space) */
+/* repeat(3, 1fr) = shorthand for: 1fr 1fr 1fr */
+.grid-3-columns {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Grid Layout 2: 2-Column Grid (SIDEBAR LAYOUT) */
+/* Creates 2 equal columns */
+/* Perfect for: two-column layouts, sidebar + main content */
+.grid-2-columns {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Grid Layout 3: Auto-Fit Responsive (NO MEDIA QUERIES NEEDED!) */
+/* auto-fit - Creates as many columns as fit in the container */
+/* minmax(100px, 1fr) - Each column min 100px, max flexible */
+/* Automatically responsive without media queries! */
+/* Perfect for product galleries, responsive cards */
+.grid-auto-fit {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive columns */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Grid Layout 4: Mixed Fixed & Flexible Sizing */
+/* grid-template-columns: 200px 1fr 150px */
+/* - 200px: Fixed width column (sidebar) */
+/* - 1fr: Flexible middle column (takes remaining space) */
+/* - 150px: Fixed width column (sidebar) */
+/* Perfect for: header-content-aside layout */
+.grid-explicit {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: 200px 1fr 150px; /* Fixed-Flexible-Fixed layout */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Grid Layout 5: Column & Row Spanning (ADVANCED LAYOUTS) */
+/* grid-column: span 2 - Item stretches across 2 columns */
+/* grid-row: span 2 - Item stretches across 2 rows */
+/* Allows items to take different sizes for asymmetric layouts */
+/* Perfect for: Pinterest-style, masonry, featured items */
+.grid-span-container {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* First item spans 2 columns */
+.grid-span-container .box:nth-child(1) {
+    grid-column: span 2;        /* Stretch across 2 columns */
+}
+
+/* Third item spans 2 rows */
+.grid-span-container .box:nth-child(3) {
+    grid-row: span 2;           /* Stretch across 2 rows */
+}
+
+/* Grid Layout 6: Spanning Across Full Width (WEBSITE LAYOUT) */
+/* grid-column: 1 / -1 = Span from column 1 to last column (full width) */
+/* grid-row: 2 / 4 = Span from row 2 to row 4 */
+/* Perfect for: Header-Content-Sidebar-Footer layouts */
+.grid-template-area {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+    grid-template-rows: auto auto auto; /* Create 3 rows with auto height */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Header spans all columns (1 to end) */
+.grid-template-area .header-item {
+    grid-column: 1 / -1;        /* Span from 1st column to last column */
+}
+
+/* Sidebar spans rows 2 to 4 */
+.grid-template-area .sidebar-item {
+    grid-row: 2 / 4;            /* Span from row 2 to row 4 */
+}
+
+/* Footer spans all columns */
+.grid-template-area .footer-item {
+    grid-column: 1 / -1;        /* Span from 1st column to last column */
+}
+
+/* Grid Layout 7: 4-Column Grid (PRODUCT LAYOUTS) */
+/* Creates 4 equal-width columns */
+/* Perfect for: product galleries, portfolios, image grids */
+.grid-4-columns {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Grid Layout 8: Proportional Sizing with Fractional Units */
+/* grid-template-columns: 1fr 2fr 1fr */
+/* - 1st column gets 1 part */
+/* - 2nd column gets 2 parts (twice as wide) */
+/* - 3rd column gets 1 part */
+/* Total = 4 parts. Each column sized proportionally! */
+.grid-fr {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: 1fr 2fr 1fr; /* 1:2:1 proportional sizing */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Grid Layout 9: Larger Gap Variation (SPACING) */
+/* Same as basic 3-column grid but with gap: 20px instead of 10px */
+/* Larger spacing gives more breathing room between items */
+/* Useful for spacious, minimal designs */
+.grid-gap-variation {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+    gap: 20px;                  /* Larger space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Grid Layout 10: Dense Auto-Flow (INTELLIGENT GAP FILLING) */
+/* grid-auto-flow: dense - Rearranges items to fill gaps intelligently */
+/* Smaller items can move up to fill space left by larger items */
+/* grid-auto-flow: sparse (default) - Items flow in order, leaving gaps */
+/* Perfect for: masonry layouts, image galleries with mixed sizes */
+.grid-auto-flow {
+    display: grid;              /* Enable CSS Grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+    grid-auto-flow: dense;      /* Intelligently fill gaps with smaller items */
+    gap: 10px;                  /* Space between grid items */
+    margin-bottom: 20px;        /* Space below container */
+}
+
+/* Second item takes up 2x2 space - creates gap that dense fills */
+.grid-auto-flow .box:nth-child(2) {
+    grid-column: span 2;        /* Stretch across 2 columns */
+    grid-row: span 2;           /* Stretch across 2 rows */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 8px;
+    margin-top: 30px;
+}

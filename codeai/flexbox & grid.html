@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Flexbox and Grid Layout Complete Guide</title>
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CSS Flexbox & Grid Layout Complete Guide</h1>
+    <p>Learn all different layout types with visual examples and code comments</p>
+</header>
+
+<!-- ========== FLEXBOX SECTION ========== -->
+<section>
+    <h2>🎯 FLEXBOX LAYOUTS - One Dimensional Layout</h2>
+    
+    <h3>1. Basic Flex Row (display: flex)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-row { display: flex; gap: 10px; }<br>
+        <strong>What it does:</strong> Creates a horizontal row layout. Items are arranged left to right.
+    </div>
+    <div class="flex-row">
+        <div class="box">Item 1</div>
+        <div class="box">Item 2</div>
+        <div class="box">Item 3</div>
+    </div>
+
+    <h3>2. Flex Column (flex-direction: column)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-column { display: flex; flex-direction: column; gap: 10px; }<br>
+        <strong>What it does:</strong> Items are stacked vertically (one on top of another).
+    </div>
+    <div class="flex-column">
+        <div class="box">Item 1</div>
+        <div class="box">Item 2</div>
+        <div class="box">Item 3</div>
+    </div>
+
+    <h3>3. Justify-Content: Space-Between</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-space-between { display: flex; justify-content: space-between; }<br>
+        <strong>What it does:</strong> Items are evenly distributed with space between them (first and last touch edges).
+    </div>
+    <div class="flex-space-between">
+        <div class="box">Left</div>
+        <div class="box">Center</div>
+        <div class="box">Right</div>
+    </div>
+
+    <h3>4. Justify-Content: Space-Around</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-space-around { display: flex; justify-content: space-around; }<br>
+        <strong>What it does:</strong> Items have equal space around them on all sides.
+    </div>
+    <div class="flex-space-around">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+    </div>
+
+    <h3>5. Justify-Content: Center</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-center { display: flex; justify-content: center; }<br>
+        <strong>What it does:</strong> All items are centered horizontally.
+    </div>
+    <div class="flex-center">
+        <div class="box">Centered</div>
+        <div class="box">Items</div>
+        <div class="box">Here</div>
+    </div>
+
+    <h3>6. Align-Items: Center (Vertical Centering)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-align-center { display: flex; align-items: center; height: 100px; }<br>
+        <strong>What it does:</strong> Items are vertically centered within the container (requires a height).
+    </div>
+    <div class="flex-align-center">
+        <div class="box">Vertically</div>
+        <div class="box">Centered</div>
+        <div class="box">Items</div>
+    </div>
+
+    <h3>7. Flex Wrap (flex-wrap: wrap)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-wrap { display: flex; flex-wrap: wrap; gap: 10px; }<br>
+        <strong>What it does:</strong> Items wrap to the next line if they don't fit (responsive behavior).
+    </div>
+    <div class="flex-wrap">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+
+    <h3>8. Flex Grow (flex: 1) - Equal Width</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-grow-container { display: flex; } .box { flex: 1; }<br>
+        <strong>What it does:</strong> Each item takes equal space. They grow to fill available space.
+    </div>
+    <div class="flex-grow-container">
+        <div class="box">Grow</div>
+        <div class="box">Grow</div>
+        <div class="box">Grow</div>
+    </div>
+
+    <h3>9. Complex Flex with Wrap and Multiple Items</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> Combined flex-direction: row, flex-wrap: wrap, justify-content: center<br>
+        <strong>What it does:</strong> Items wrap when needed and are centered.
+    </div>
+    <div class="flex-wrap-column">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+    </div>
+
+    <h3>10. Align-Content with Wrap (Multi-line alignment)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .flex-align-content { display: flex; flex-wrap: wrap; align-content: space-between; height: 200px; }<br>
+        <strong>What it does:</strong> Controls space between wrapped lines (not individual items).
+    </div>
+    <div class="flex-align-content">
+        <div class="box">Line 1</div>
+        <div class="box">Line 1</div>
+        <div class="box">Line 2</div>
+        <div class="box">Line 2</div>
+    </div>
+</section>
+
+<!-- ========== GRID SECTION ========== -->
+<section>
+    <h2>📊 CSS GRID LAYOUTS - Two Dimensional Layout</h2>
+
+    <h3>1. Basic 3-Column Grid</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .grid-3-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }<br>
+        <strong>What it does:</strong> Creates 3 equal-width columns. repeat(3, 1fr) = 3 columns of equal size.
+    </div>
+    <div class="grid-3-columns">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+    </div>
+
+    <h3>2. 2-Column Grid</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .grid-2-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }<br>
+        <strong>What it does:</strong> Creates 2 equal-width columns.
+    </div>
+    <div class="grid-2-columns">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+        <div class="box">D</div>
+    </div>
+
+    <h3>3. Auto-Fit Responsive Grid (Responsive Without Media Queries)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .grid-auto-fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }<br>
+        <strong>What it does:</strong> Creates as many columns as fit. Each column is at least 100px and can grow. Auto-responsive!
+    </div>
+    <div class="grid-auto-fit">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+
+    <h3>4. Grid with Explicit Sizing (Fixed + Flexible)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .grid-explicit { grid-template-columns: 200px 1fr 150px; }<br>
+        <strong>What it does:</strong> First column 200px, middle takes remaining space, last 150px. Mix of fixed and flexible.
+    </div>
+    <div class="grid-explicit">
+        <div class="box">200px</div>
+        <div class="box">Flexible</div>
+        <div class="box">150px</div>
+    </div>
+
+    <h3>5. Grid with Span (Column and Row Spanning)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> First item: grid-column: span 2; | Third item: grid-row: span 2;<br>
+        <strong>What it does:</strong> Items can stretch across multiple columns or rows for layout flexibility.
+    </div>
+    <div class="grid-span-container">
+        <div class="box">Spans 2 Cols</div>
+        <div class="box">Item 2</div>
+        <div class="box">Spans 2 Rows</div>
+        <div class="box">Item 4</div>
+        <div class="box">Item 5</div>
+        <div class="box">Item 6</div>
+    </div>
+
+    <h3>6. Grid Template Areas (Named Regions - Website Layout)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> Using grid-column: 1 / -1 to span all columns from start to end<br>
+        <strong>What it does:</strong> Create header, sidebar, and footer layout with spanning items.
+    </div>
+    <div class="grid-template-area">
+        <div class="box header-item">Header (Spans All Columns)</div>
+        <div class="box">Main 1</div>
+        <div class="box">Main 2</div>
+        <div class="box sidebar-item">Sidebar<br>(Spans 2 Rows)</div>
+        <div class="box">Content 4</div>
+        <div class="box">Content 5</div>
+        <div class="box footer-item">Footer (Spans All Columns)</div>
+    </div>
+
+    <h3>7. 4-Column Grid</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .grid-4-columns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }<br>
+        <strong>What it does:</strong> Creates 4 equal-width columns. Good for product galleries or portfolios.
+    </div>
+    <div class="grid-4-columns">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+    </div>
+
+    <h3>8. Grid with Fractional Units (fr) - Proportional Sizes</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .grid-fr { grid-template-columns: 1fr 2fr 1fr; }<br>
+        <strong>What it does:</strong> 1st column gets 1 part, 2nd gets 2 parts, 3rd gets 1 part. Total = 4 parts. Proportional sizing!
+    </div>
+    <div class="grid-fr">
+        <div class="box">1x</div>
+        <div class="box">2x (Wider)</div>
+        <div class="box">1x</div>
+    </div>
+
+    <h3>9. Grid with Larger Gap</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .grid-gap-variation { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }<br>
+        <strong>What it does:</strong> Same as basic grid but with larger spacing (gap: 20px instead of 10px).
+    </div>
+    <div class="grid-gap-variation">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+        <div class="box">D</div>
+        <div class="box">E</div>
+        <div class="box">F</div>
+    </div>
+
+    <h3>10. Grid Auto-Flow Dense (Fills Gaps Intelligently)</h3>
+    <div class="code-explanation">
+        <strong>Code:</strong> .grid-auto-flow { grid-auto-flow: dense; } + item with grid-column: span 2; grid-row: span 2;<br>
+        <strong>What it does:</strong> dense mode rearranges items to fill gaps. Item 2 is bigger and fills empty space below it.
+    </div>
+    <div class="grid-auto-flow">
+        <div class="box">1</div>
+        <div class="box">Large Item 2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+</section>
+
+<!-- ========== SUMMARY SECTION ========== -->
+<section>
+    <h2>📋 Quick Reference Summary</h2>
+    
+    <h3>When to use Flexbox:</h3>
+    <ul>
+        <li>Navigation menus (horizontal or vertical)</li>
+        <li>Button groups</li>
+        <li>Simple one-dimensional layouts</li>
+        <li>Aligning and spacing items in a row or column</li>
+    </ul>
+
+    <h3>When to use CSS Grid:</h3>
+    <ul>
+        <li>Full page layouts (header, sidebar, main, footer)</li>
+        <li>Complex multi-dimensional layouts</li>
+        <li>Product galleries and card layouts</li>
+        <li>Dashboard layouts with varying item sizes</li>
+    </ul>
+
+    <h3>Key Flexbox Properties:</h3>
+    <ul>
+        <li><strong>display: flex</strong> - Enable flexbox</li>
+        <li><strong>flex-direction</strong> - row (default) or column</li>
+        <li><strong>justify-content</strong> - Align items horizontally (flex-start, center, space-between, space-around, space-evenly)</li>
+        <li><strong>align-items</strong> - Align items vertically (flex-start, center, flex-end, stretch)</li>
+        <li><strong>flex-wrap</strong> - wrap or nowrap (wrap to next line or not)</li>
+        <li><strong>gap</strong> - Space between items</li>
+        <li><strong>flex</strong> - Shorthand for flex-grow, flex-shrink, flex-basis</li>
+    </ul>
+
+    <h3>Key Grid Properties:</h3>
+    <ul>
+        <li><strong>display: grid</strong> - Enable CSS Grid</li>
+        <li><strong>grid-template-columns</strong> - Define column widths</li>
+        <li><strong>grid-template-rows</strong> - Define row heights</li>
+        <li><strong>gap</strong> - Space between items</li>
+        <li><strong>grid-column: span X</strong> - Item spans X columns</li>
+        <li><strong>grid-row: span Y</strong> - Item spans Y rows</li>
+        <li><strong>repeat(n, size)</strong> - Repeat n times with size</li>
+        <li><strong>1fr</strong> - One fractional unit (flexible sizing)</li>
+        <li><strong>auto-fit / auto-fill</strong> - Auto-responsive columns</li>
+        <li><strong>minmax(min, max)</strong> - Flexible sizing with constraints</li>
+    </ul>
+</section>
+
+<footer>
+    <p>📚 Practice these layouts to become a CSS layout expert!</p>
+    <p>Try resizing your browser window to see responsive behavior on auto-fit grid</p>
+</footer>
+
+</body>
+</html>
